@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+    font-family: "Transcity", sans-serif;
+    font-weight: 300;
+    --off-white: #FAF9F650;
+    --orange: rgb(173, 72, 0);
+    --yellow: rgb(255, 199, 94, 0.8);
+    --light-yellow: rgb(255, 235, 172, 0.8);
+}
+
+@font-face {
+    font-family: "Transcity";
+    src: url("./assets/Transcity\ DEMO.otf");
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    height: 100vh;
+}
+
+#frame {
+    opacity: 0;
+    position: absolute;
+    transform: translate(-20%, 100%) scale(0.65);
+    transition: all 1.25s ease-in-out;
+}
+  
+.loading-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+#logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(50vw, 50vh) translate(-50%, -50%) scale(1); 
+    transition: all 1s ease-in-out;
+}
+
+/* Form */
+
+#form-container {
+    opacity: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    border: 5px solid var(--orange);
+    border-radius: 15px;
+    padding: 15px;
+    height: 50vh;
+    width: 40vw;
+    max-width: 700px;
+    color: var(--orange);
+    background-color: var(--light-yellow);
+    margin: 0 auto;
+    transform: translate(0, 28vh);
+    transition: all 1s ease-in-out;
+}
+
+h2 {
+    grid-column: span 2;
+    text-align: center;
+    margin-bottom: -2px;
+    font-size: 2.5rem;
+    font-weight: 600 !important;
+    letter-spacing: 0.15rem;
+}
+
+@media (max-width: 770px) {
+    #loading-page {
+        padding: 50px;
+    }
+    #form-container {
+        margin: 0 auto;
+        transform: translate(0, 35vh);
+        gap: 8px;
+        width: auto;
+        max-width: 500px;
+    }
+    #logo {
+        transform: translate(50vw, 50vh) translate(-50%, -50%) scale(0.6); 
+    }
+}
+
+@media (max-width: 380px) {
+    #form-container {
+        height: 60vh;
+        width: 70vw;
+        align-items: center;
+        margin-top: -20px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #logo {
+        width: 500px;
+    }
+    h2 {
+        margin: 0;
+        margin-bottom: -50px;
+    }
+}

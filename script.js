@@ -28,6 +28,8 @@ setTimeout(blink, 2000);
 
 // -----------------------------------------------------------
 
+const gridContainer = document.getElementById('grid-container');
+
 let myLibrary = [];
 
 function Book(id, name, author) {
@@ -41,6 +43,31 @@ function addBookToLibrary(name, author) {
 
     let newBook = new Book(newID, name, author);
     myLibrary.push(newBook);
+
+    const bookDiv = document.createElement('div');
+    bookDiv.className = "book";
+    const titleDiv = document.createElement('div');
+    titleDiv.className = "title";
+    titleDiv.textContent = newBook.name;
+    const authorDiv = document.createElement('div');
+    authorDiv.className = "author";
+    authorDiv.textContent = newBook.author;
+    const idDiv = document.createElement('p');
+    idDiv.className = "id";
+    idDiv.textContent = newBook.id;
+    const statusButton = document.createElement('button');
+    statusButton.className = "readStatus unread";
+    statusButton.addEventListener('click', () => {
+      if (statusButton.className.includes("unread")) {
+        statusButton.className = "readStatus read";
+      } else {
+        statusButton.className = "readStatus unread";
+      }
+    });
+
+    bookDiv.append(titleDiv, authorDiv, idDiv, statusButton);
+
+  gridContainer.appendChild(bookDiv);
 }
 
 addBookToLibrary("LoTR: Return of The King", "Tolkien");

@@ -20,6 +20,10 @@ body {
     height: 100vh;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 #frame {
     opacity: 0;
     position: absolute;
@@ -105,12 +109,51 @@ h1 {
     overflow: hidden;
 }
 
-#add-btn {
+.add {
     background-color: var(--orange);
     border: 5px solid var(--yellow);
     color: var(--yellow);
     font-size: 2rem;
     order: 1;
+}
+
+.form {
+    padding: 20px;
+}
+
+form {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+input {
+    background: var(--light-yellow);
+    border: none;
+    border-radius: 7px;
+    color: var(--orange);
+    max-width: 10vw;
+    font-size: 1.25rem;
+}
+
+#add-btn {
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background: var(--yellow);
+    color: var(--orange);
+}
+
+#cancel-btn {
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background: none;
+    color: var(--yellow);
 }
 
 /* Book Details */
@@ -157,10 +200,6 @@ p {
 
     border: none;
     border-top: 5px solid var(--orange);
-}
-
-.readStatus:hover {
-    cursor: pointer;
 }
 
 .unread {

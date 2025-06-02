@@ -29,6 +29,7 @@ setTimeout(blink, 2000);
 // -----------------------------------------------------------
 
 const gridContainer = document.getElementById('grid-container');
+const addBookBtn = document.getElementById('add-book');
 
 let myLibrary = [];
 
@@ -69,6 +70,10 @@ function addBookToLibrary(name, author) {
 
   gridContainer.appendChild(bookDiv);
 }
+
+addBookBtn.addEventListener('click', () => {
+  addBookBtn.className = "add book form";
+})
 
 addBookToLibrary("LoTR: Return of The King", "Tolkien");
 addBookToLibrary("The Secret History", "Donna Tartt");

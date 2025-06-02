@@ -30,6 +30,7 @@ setTimeout(blink, 2000);
 
 const gridContainer = document.getElementById('grid-container');
 const addBookBtn = document.getElementById('add-book');
+const addBtn = document.getElementById('add-btn');
 
 let myLibrary = [];
 
@@ -47,33 +48,35 @@ function addBookToLibrary(name, author) {
 
     const bookDiv = document.createElement('div');
     bookDiv.className = "book";
-    const titleDiv = document.createElement('div');
-    titleDiv.className = "title";
-    titleDiv.textContent = newBook.name;
-    const authorDiv = document.createElement('div');
-    authorDiv.className = "author";
-    authorDiv.textContent = newBook.author;
-    const idDiv = document.createElement('p');
-    idDiv.className = "id";
-    idDiv.textContent = newBook.id;
-    const statusButton = document.createElement('button');
-    statusButton.className = "readStatus unread";
-    statusButton.addEventListener('click', () => {
-      if (statusButton.className.includes("unread")) {
-        statusButton.className = "readStatus read";
-      } else {
-        statusButton.className = "readStatus unread";
-      }
-    });
 
-    bookDiv.append(titleDiv, authorDiv, idDiv, statusButton);
+    console.log(newBook.name);
+
+    bookDiv.innerHTML = `
+    <div class="title">${newBook.name}</div>
+    <div class="author">${newBook.author}</div>
+    <p class="id">${newBook.id}</p>
+    <button class="readStatus unread"></button>`;
 
   gridContainer.appendChild(bookDiv);
 }
 
 addBookBtn.addEventListener('click', () => {
-  addBookBtn.className = "add book form";
+  addBookBtn.innerHTML = `
+    <form action="#" method="POST">
+        <label for="add-title">Title:</label>
+        <input type="text" id="add-title" for="add-title">
+
+        <label for="add-author">Author:</label>
+        <input type="text" id="add-author" for="add-author">
+
+        <button type="submit" id="add-btn">Add +</button>
+        <button id="cancel-btn">Cancel</button>
+    </form>`;
+    addBookBtn.className = "book add form";
 })
 
-addBookToLibrary("LoTR: Return of The King", "Tolkien");
-addBookToLibrary("The Secret History", "Donna Tartt");
+addBtn.addEventListener("click", () => {
+  let newTitle = document.getElementById("add-title").value;
+  let newAuthor = document.getElementById("add-author").value;
+  addBookToLibrary(newTitle, newAuthor);
+})

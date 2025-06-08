@@ -140,6 +140,15 @@ input {
     font-size: 1.25rem;
 }
 
+#add-book-btn {
+    font-size: inherit;
+    color: var(--yellow);
+    background: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
 #add-btn {
     font-size: 1.5rem;
     border: none;
@@ -176,7 +185,7 @@ input {
     height: 30%;
     margin-top: 50px;
 
-    font-size: 2rem;
+    font-size: 4vmin;
 }
 
 .author {
